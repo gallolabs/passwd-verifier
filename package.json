@@ -1,0 +1,39 @@
+{
+  "name": "@gallolabs/passwd-verifier",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "description": "Password verifier",
+  "scripts": {
+    "build": "rm -Rf dist && tsc",
+    "test": "npm run build && npx c8 --all --src 'src' --exclude '*/*test*' --report-dir=/tmp/nyc mocha 'dist/*test*.js'",
+    "deploy": "npm run test && rm dist/*test* && npm login && trap 'npm logout' EXIT && release-it --no-git.requireCleanWorkingDir"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/safe-compare": "^1.1.2",
+    "apache-crypt": "^1.2.6",
+    "apache-md5": "^1.1.8",
+    "bcryptjs": "^2.4.3",
+    "safe-compare": "^1.1.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "workspaces": [
+    "."
+  ],
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.10.4",
+    "c8": "^8.0.1",
+    "mocha": "^10.2.0",
+    "release-it": "^17.0.1",
+    "typescript": "^5.3.3"
+  }
+}
