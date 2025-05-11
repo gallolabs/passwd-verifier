@@ -15,3 +15,6 @@ Validates passwords with support of htpasswd format.
 ```
 
 Supports various format (sha, bcrypt, md5, crypt, plain). Like htpasswd command line, in case of plain password looking like crypt one, crypt is used. You can use options to disable crypt and/or plain. You can use detectHashType to refuse some password hash types in your side.
+
+## todo
+- Add password generator
